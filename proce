@@ -1,0 +1,993 @@
+1. Create Numeric, Character and Logical Vectors
+Aim
+
+To create numeric, character and logical vectors in R and display their type and contents.
+
+Procedure
+Create a numeric vector using c().
+Create a character vector using c().
+Create a logical vector using TRUE and FALSE.
+Display the contents and data type using print() and typeof().
+Code
+# Numeric vector
+num <- c(10, 20, 30, 40, 50)
+
+# Character vector
+char <- c("Apple", "Banana", "Mango", "Orange")
+
+# Logical vector
+logical <- c(TRUE, FALSE, TRUE, FALSE)
+
+# Display contents and type
+print(num)
+print(typeof(num))
+
+print(char)
+print(typeof(char))
+
+print(logical)
+print(typeof(logical))
+Result
+
+Thus, numeric, character and logical vectors were created successfully and their contents and types were displayed.
+
+2. Create Labeled Matrices
+Aim
+
+To create labeled matrices of sizes 5×4, 3×3 and 2×2 using row-wise and column-wise filling.
+
+Procedure
+Create matrices using the matrix() function.
+Use byrow=TRUE for row-wise filling.
+Use byrow=FALSE for column-wise filling.
+Assign row and column names.
+Display the matrices.
+Code
+# 5 x 4 matrix - filled by row
+m1 <- matrix(1:20, nrow=5, ncol=4, byrow=TRUE)
+rownames(m1) <- paste0("R", 1:5)
+colnames(m1) <- paste0("C", 1:4)
+
+# 3 x 3 matrix - filled by column
+m2 <- matrix(1:9, nrow=3, ncol=3, byrow=FALSE)
+rownames(m2) <- paste0("R", 1:3)
+colnames(m2) <- paste0("C", 1:3)
+
+# 2 x 2 matrix - filled by row
+m3 <- matrix(1:4, nrow=2, ncol=2, byrow=TRUE)
+rownames(m3) <- c("A", "B")
+colnames(m3) <- c("X", "Y")
+
+print(m1)
+print(m2)
+print(m3)
+Result
+
+Thus, labeled 5×4, 3×3 and 2×2 matrices were created and displayed successfully.
+
+3. Create and Display a 3D Array
+Aim
+
+To create and display a three-dimensional array with specified rows, columns and tables.
+
+Procedure
+Create an array using the array() function.
+Specify dimensions using dim.
+Store values from 1 to 12.
+Display the array and its dimensions.
+Code
+# Create 3D array
+arr <- array(1:12, dim=c(2,3,2))
+
+# Display array
+print(arr)
+
+# Display dimensions
+print(dim(arr))
+Result
+
+Thus, a 3D array containing 2 rows, 3 columns and 2 tables was created and displayed successfully.
+
+4. Create Arrays from Vectors with Dimension Names
+Aim
+
+To create an array from a vector with dimension names and access specific elements.
+
+Procedure
+Create a vector containing values.
+Convert it into a 3D array.
+Assign row, column and table names.
+Access specific elements using indices.
+Code
+# Create vector
+v <- 1:12
+
+# Create named 3D array
+arr <- array(
+  v,
+  dim=c(2,3,2),
+  dimnames=list(
+    c("Row1","Row2"),
+    c("Col1","Col2","Col3"),
+    c("Table1","Table2")
+  )
+)
+
+# Display array
+print(arr)
+
+# Print specific elements
+print(arr[1,2,1])
+print(arr[2,3,2])
+Result
+
+Thus, an array was created from a vector with dimension names and specific elements were accessed successfully.
+
+5. Create and Manipulate Factor Variables
+Aim
+
+To create and manipulate factor variables and generate a random sample of letters in R.
+
+Procedure
+Create a vector containing height values.
+Create a categorical gender factor.
+Generate random letters using sample().
+Convert the letters into a factor.
+Display the factor levels.
+Code
+# Numeric vector
+heights <- c(160, 165, 170, 155, 168)
+
+# Factor variable
+gender <- factor(c("Female", "Male", "Female", "Female", "Male"))
+
+# Random LETTERS sample
+letters_sample <- sample(LETTERS, 10)
+
+# Convert letters to factor
+letter_factor <- factor(letters_sample)
+
+print(heights)
+print(gender)
+print(letters_sample)
+print(letter_factor)
+print(levels(letter_factor))
+Result
+
+Thus, factor variables were created and manipulated successfully, and random letters were generated.
+
+6. Create an R List
+Aim
+
+To create an R list containing vectors, matrices and functions and display its contents.
+
+Procedure
+Create a vector.
+Create a matrix.
+Define a function.
+Store all three objects in a list.
+Access and display individual list elements.
+Code
+# Create vector
+v <- c(10,20,30,40)
+
+# Create matrix
+m <- matrix(1:9, nrow=3)
+
+# Create function
+square <- function(x) {
+  return(x*x)
+}
+
+# Create list
+mylist <- list(
+  Vector=v,
+  Matrix=m,
+  Function=square
+)
+
+# Display list
+print(mylist)
+
+# Access list elements
+print(mylist$Vector)
+print(mylist$Matrix)
+print(mylist$Function(5))
+Result
+
+Thus, an R list containing a vector, matrix and function was created and its contents were displayed successfully.
+
+7. Factors, Random Integers and FizzBuzz
+Aim
+
+To find the factors of a number, generate random integers and implement the FizzBuzz logic using R.
+
+Procedure
+Use a loop to find factors of a number.
+Generate 10 random integers between -50 and 50.
+Use a loop from 1 to 100.
+Apply FizzBuzz conditions using the modulus operator.
+Code
+# Find factors
+n <- 24
+factors <- c()
+
+for(i in 1:n) {
+  if(n %% i == 0) {
+    factors <- c(factors, i)
+  }
+}
+
+print(factors)
+
+# Generate 10 random integers
+random_numbers <- sample(-50:50, 10)
+print(random_numbers)
+
+# FizzBuzz
+for(i in 1:100) {
+  if(i %% 15 == 0) {
+    print("FizzBuzz")
+  } else if(i %% 3 == 0) {
+    print("Fizz")
+  } else if(i %% 5 == 0) {
+    print("Buzz")
+  } else {
+    print(i)
+  }
+}
+Result
+
+Thus, the factors were found, random integers were generated, and FizzBuzz logic was implemented successfully.
+
+8. Generate Random Numbers from Normal Distribution
+Aim
+
+To generate random numbers from a normal distribution and count their occurrences based on specified ranges.
+
+Procedure
+Generate 100 random numbers using rnorm().
+Set the mean and standard deviation.
+Count values greater than 50 and less than 50.
+Group the values into intervals using cut() and count them.
+Code
+set.seed(123)
+
+# Generate normal random numbers
+x <- rnorm(100, mean=50, sd=10)
+
+# Display numbers
+print(x)
+
+# Count occurrences
+greater_50 <- sum(x > 50)
+less_50 <- sum(x < 50)
+
+print(greater_50)
+print(less_50)
+
+# Count values in intervals
+counts <- table(
+  cut(x, breaks=c(-Inf,40,50,60,Inf))
+)
+
+print(counts)
+Result
+
+Thus, normally distributed random numbers were generated and their occurrences in different ranges were counted successfully.
+
+9. Create Empty Plot with Axis Limits
+Aim
+
+To create an empty plot with specified X-axis and Y-axis limits.
+
+Procedure
+Use the plot() function.
+Set type="n" to create an empty plotting region.
+Specify X-axis and Y-axis limits using xlim and ylim.
+Add axis labels and title.
+Code
+plot(
+  0, 0,
+  type="n",
+  xlim=c(0,100),
+  ylim=c(0,100),
+  xlab="X Axis",
+  ylab="Y Axis",
+  main="Empty Plot"
+)
+Result
+
+Thus, an empty plot with the specified axis limits and labels was created successfully.
+
+10. Create and Explore exam_data
+Aim
+
+To create and manipulate a data frame named exam_data by extracting data, adding rows and columns, sorting and saving it to a file.
+
+Procedure
+Create a data frame with name, score, attempts and qualify.
+Display its structure.
+Extract required rows and columns.
+Add a new row and column.
+Sort the data.
+Save the data frame as a CSV file.
+Code
+# Create data frame
+exam_data <- data.frame(
+  name=c("Arun","Bala","Chitra","Divya","Elan"),
+  score=c(85,72,91,65,78),
+  attempts=c(1,2,1,3,2),
+  qualify=c(TRUE,TRUE,TRUE,FALSE,TRUE)
+)
+
+# Display data
+print(exam_data)
+
+# Structure
+str(exam_data)
+
+# Extract score
+print(exam_data$score)
+
+# Extract first row
+print(exam_data[1,])
+
+# Add new row
+new_row <- data.frame(
+  name="Fathima",
+  score=88,
+  attempts=1,
+  qualify=TRUE
+)
+
+exam_data <- rbind(exam_data, new_row)
+
+# Add new column
+exam_data$grade <- ifelse(
+  exam_data$score >= 80, "A", "B"
+)
+
+# Sort by score
+exam_data <- exam_data[order(-exam_data$score),]
+
+print(exam_data)
+
+# Save to CSV
+write.csv(exam_data, "exam_data.csv", row.names=FALSE)
+Result
+
+Thus, the exam_data data frame was created, manipulated, sorted and successfully saved as a CSV file.
+
+11. Read a CSV File and Display Contents
+Aim
+
+To read a CSV file in R and display its contents.
+
+Procedure
+Use read.csv() to read the CSV file.
+Store the data in a data frame.
+Display the data.
+Display its structure and summary.
+Code
+# Select CSV file manually
+data <- read.csv(file.choose())
+
+# Display contents
+print(data)
+
+# Display structure
+str(data)
+
+# Display summary
+summary(data)
+Result
+
+Thus, the CSV file was successfully read and its contents, structure and summary were displayed.
+
+Note: When running this program, select your .csv file from the file-selection window.
+
+12. Data Reshaping Using Melt and Cast
+Aim
+
+To reshape an air-quality dataset using melt and cast operations and calculate monthly averages of Ozone, Solar Radiation, Wind and Temperature.
+
+Procedure
+Load the airquality dataset.
+Load the reshape2 package.
+Convert the data into long format using melt().
+Convert it into summarized wide format using dcast().
+Calculate monthly averages.
+Code
+# Install once if required:
+# install.packages("reshape2")
+
+library(reshape2)
+
+# Load airquality dataset
+data <- airquality
+
+# Melt data
+melted <- melt(
+  data,
+  id.vars=c("Month","Day"),
+  measure.vars=c("Ozone","Solar.R","Wind","Temp")
+)
+
+print(melted)
+
+# Cast data and calculate monthly averages
+casted <- dcast(
+  melted,
+  Month ~ variable,
+  fun.aggregate=mean,
+  na.rm=TRUE
+)
+
+print(casted)
+
+# Monthly averages
+monthly_avg <- aggregate(
+  cbind(Ozone, Solar.R, Wind, Temp) ~ Month,
+  data=data,
+  FUN=mean,
+  na.rm=TRUE
+)
+
+print(monthly_avg)
+Result
+
+Thus, the air-quality dataset was reshaped using melt and cast operations and monthly averages were calculated successfully.
+
+13. Combine Multiple Arrays Row-Wise
+Aim
+
+To combine multiple arrays or matrices row-wise using the rbind() function.
+
+Procedure
+Create three matrices.
+Store different values in each matrix.
+Combine the matrices using rbind().
+Display the resulting matrix.
+Code
+# Create matrices
+a1 <- matrix(1:6, nrow=2, ncol=3)
+a2 <- matrix(7:12, nrow=2, ncol=3)
+a3 <- matrix(13:18, nrow=2, ncol=3)
+
+# Display matrices
+print(a1)
+print(a2)
+print(a3)
+
+# Combine row-wise
+result <- rbind(a1, a2, a3)
+
+print(result)
+Result
+
+Thus, multiple matrices were successfully combined row-wise into a single matrix.
+
+14. Explore and Manipulate ChickWeight
+Aim
+
+To explore and manipulate the ChickWeight dataset using sorting, melting and casting operations.
+
+Procedure
+Load the built-in ChickWeight dataset.
+Display its structure and summary.
+Sort the data according to weight and diet.
+Melt the dataset.
+Cast the melted data to calculate average weight.
+Code
+# Load dataset
+data <- ChickWeight
+
+# Display dataset
+print(data)
+
+# Structure and summary
+str(data)
+summary(data)
+
+# Sort by weight
+sorted_weight <- data[order(data$weight),]
+print(sorted_weight)
+
+# Sort by Diet
+sorted_diet <- data[order(data$Diet),]
+print(sorted_diet)
+
+# Melt data
+library(reshape2)
+
+melted <- melt(
+  data,
+  id.vars=c("Chick","Time","Diet")
+)
+
+print(melted)
+
+# Cast data
+casted <- dcast(
+  melted,
+  Diet ~ Time,
+  value.var="value",
+  fun.aggregate=mean
+)
+
+print(casted)
+Result
+
+Thus, the ChickWeight dataset was explored, sorted, melted and cast successfully.
+
+15. EDA on Iris Dataset
+Aim
+
+To perform exploratory data analysis on the Iris dataset using dimensions, summary, standard deviation, quantiles, grouping and boxplots.
+
+Procedure
+Load the Iris dataset.
+Find its dimensions.
+Generate summary statistics.
+Calculate standard deviation and quantiles.
+Group the data according to species.
+Visualize the data using a boxplot.
+Code
+# Load Iris dataset
+data <- iris
+
+# Dimensions
+print(dim(data))
+
+# Summary
+print(summary(data))
+
+# Standard deviation
+print(sapply(data[1:4], sd))
+
+# Quantiles
+print(sapply(data[1:4], quantile))
+
+# Mean Sepal Length by Species
+grouped <- aggregate(
+  Sepal.Length ~ Species,
+  data=data,
+  FUN=mean
+)
+
+print(grouped)
+
+# Pivot table
+print(table(data$Species))
+
+# Boxplot
+boxplot(
+  Sepal.Length ~ Species,
+  data=data,
+  main="Sepal Length by Species",
+  xlab="Species",
+  ylab="Sepal Length"
+)
+Result
+
+Thus, exploratory data analysis was successfully performed on the Iris dataset using statistical measures, grouping, tables and visualization.
+
+16. Explore USArrests Dataset
+Aim
+
+To analyze the USArrests dataset using summary statistics, maximum and minimum values, correlation, filtering and graphical visualization.
+
+Procedure
+Load the USArrests dataset.
+Calculate summary statistics.
+Find the state with the largest rape arrest rate.
+Find maximum and minimum murder rates.
+Calculate correlation between features.
+Identify states above median assault arrests and bottom 25% murder arrests.
+Generate graphs.
+Code
+# Load dataset
+data <- USArrests
+
+# Summary statistics
+print(summary(data))
+
+# Mean
+print(colMeans(data))
+
+# Standard deviation
+print(sapply(data, sd))
+
+# State with largest rape arrests
+state_rape <- rownames(data)[which.max(data$Rape)]
+
+print(state_rape)
+print(max(data$Rape))
+
+# Maximum and minimum murder rates
+print(max(data$Murder))
+print(min(data$Murder))
+
+# Correlation
+print(cor(data))
+
+# States above median Assault
+median_assault <- median(data$Assault)
+
+above_median <- data[
+  data$Assault > median_assault,
+]
+
+print(above_median)
+
+# Bottom 25% for Murder
+q25 <- quantile(data$Murder, 0.25)
+
+bottom25 <- data[
+  data$Murder <= q25,
+]
+
+print(bottom25)
+
+# Histogram
+hist(
+  data$Murder,
+  main="Murder Arrests",
+  xlab="Murder"
+)
+
+# Density plot
+plot(
+  density(data$Murder),
+  main="Density of Murder Arrests"
+)
+
+# Scatter plot
+plot(
+  data$Murder,
+  data$Assault,
+  main="Murder vs Assault",
+  xlab="Murder",
+  ylab="Assault"
+)
+
+# Bar graph
+barplot(
+  data$Murder[1:10],
+  names.arg=rownames(data)[1:10],
+  las=2,
+  main="Murder Arrests"
+)
+Result
+
+Thus, the USArrests dataset was successfully analyzed using statistical calculations, filtering, correlation and different visualization techniques.
+
+17. Explore Titanic Dataset
+Aim
+
+To analyze the Titanic dataset using bar charts for survival and gender and a histogram for passenger age.
+
+Procedure
+Load the Titanic dataset.
+Convert the contingency table into a data frame.
+Calculate survival frequencies.
+Create a bar chart for survival.
+Analyze survival by gender.
+Use an age-containing Titanic dataset to create an age histogram.
+Code
+# Titanic survival dataset
+data <- as.data.frame(Titanic)
+
+print(data)
+
+# Survival count
+survival <- aggregate(
+  Freq ~ Survived,
+  data=data,
+  sum
+)
+
+print(survival)
+
+# Bar chart of survival
+barplot(
+  survival$Freq,
+  names.arg=survival$Survived,
+  main="Titanic Survival",
+  xlab="Survived",
+  ylab="Frequency"
+)
+
+# Survival by gender
+gender_survival <- tapply(
+  data$Freq,
+  list(data$Sex, data$Survived),
+  sum
+)
+
+print(gender_survival)
+
+barplot(
+  gender_survival,
+  beside=TRUE,
+  legend=TRUE,
+  main="Survival by Gender",
+  xlab="Gender",
+  ylab="Frequency"
+)
+
+# Titanic dataset with individual passenger ages
+if(!require(titanic, quietly=TRUE)) {
+  install.packages("titanic")
+  library(titanic)
+} else {
+  library(titanic)
+}
+
+age_data <- titanic_train
+
+# Histogram of Age
+hist(
+  age_data$Age,
+  main="Histogram of Passenger Age",
+  xlab="Age",
+  ylab="Frequency"
+)
+Result
+
+Thus, the Titanic dataset was explored using survival and gender bar charts and a histogram of passenger ages.
+
+Note: The built-in R Titanic dataset does not contain individual passenger ages. Therefore, the titanic package is used only for the Age histogram.
+
+18. Create Basic Graphs in R
+Aim
+
+To create boxplot, histogram, bar plot, line chart and scatter plot using R.
+
+Procedure
+Use the Iris dataset.
+Create a boxplot for Sepal Length.
+Create a histogram.
+Create a bar plot for species.
+Create a line chart.
+Create a scatter plot between Sepal Length and Petal Length.
+Code
+# Load Iris dataset
+data <- iris
+
+# Boxplot
+boxplot(
+  data$Sepal.Length,
+  main="Boxplot of Sepal Length",
+  ylab="Sepal Length"
+)
+
+# Histogram
+hist(
+  data$Sepal.Length,
+  main="Histogram of Sepal Length",
+  xlab="Sepal Length",
+  ylab="Frequency"
+)
+
+# Bar plot
+barplot(
+  table(data$Species),
+  main="Species Count",
+  xlab="Species",
+  ylab="Count"
+)
+
+# Line chart
+plot(
+  data$Sepal.Length,
+  type="l",
+  main="Line Chart of Sepal Length",
+  xlab="Observation",
+  ylab="Sepal Length"
+)
+
+# Scatter plot
+plot(
+  data$Sepal.Length,
+  data$Petal.Length,
+  main="Sepal Length vs Petal Length",
+  xlab="Sepal Length",
+  ylab="Petal Length"
+)
+Result
+
+Thus, boxplot, histogram, bar plot, line chart and scatter plot were successfully created in R.
+
+19. Regression Model on Advertising Dataset
+Aim
+
+To build a simple linear regression model using advertising spend to predict sales.
+
+Procedure
+Create an advertising dataset containing Spend and Sales.
+Build a linear regression model using lm().
+Display the model summary.
+Predict Sales for a new advertising spend value.
+Plot the regression line.
+Code
+# Create Advertising dataset
+advertising <- data.frame(
+  Spend=c(100,150,200,250,300,350,400,450,500,550),
+  Sales=c(20,28,35,42,50,55,63,70,78,85)
+)
+
+# Build regression model
+model <- lm(
+  Sales ~ Spend,
+  data=advertising
+)
+
+# Display model summary
+print(summary(model))
+
+# Predict Sales for Spend = 600
+new_data <- data.frame(Spend=600)
+
+prediction <- predict(
+  model,
+  newdata=new_data
+)
+
+print(prediction)
+
+# Scatter plot
+plot(
+  advertising$Spend,
+  advertising$Sales,
+  main="Advertising Spend vs Sales",
+  xlab="Advertising Spend",
+  ylab="Sales"
+)
+
+# Regression line
+abline(model)
+Result
+
+Thus, a simple linear regression model was built successfully and Sales was predicted based on advertising Spend.
+
+20. Multiple Regression Using ChickWeight
+Aim
+
+To build a multiple regression model using Time and Diet as predictors to predict the weight of chicks.
+
+Procedure
+Load the ChickWeight dataset.
+Use Weight as the dependent variable.
+Use Time and Diet as independent variables.
+Build a multiple linear regression model using lm().
+Predict the weight for a new observation.
+Compare actual and predicted values graphically.
+Code
+# Load ChickWeight dataset
+data <- ChickWeight
+
+# Build multiple regression model
+model <- lm(
+  weight ~ Time + Diet,
+  data=data
+)
+
+# Display model summary
+print(summary(model))
+
+# New observation
+new_data <- data.frame(
+  Time=20,
+  Diet=factor("1", levels=levels(data$Diet))
+)
+
+# Predict weight
+prediction <- predict(
+  model,
+  newdata=new_data
+)
+
+print(prediction)
+
+# Predict all observations
+predicted <- predict(model)
+
+# Actual vs predicted plot
+plot(
+  data$weight,
+  predicted,
+  main="Actual vs Predicted Weight",
+  xlab="Actual Weight",
+  ylab="Predicted Weight"
+)
+
+abline(0,1)
+Result
+
+Thus, a multiple regression model was created successfully using Time and Diet, and chick weight was predicted.
+
+21. Iris Train/Test Split and Logistic Regression
+Aim
+
+To randomly divide the Iris dataset into 80% training and 20% testing data, build a logistic regression model, predict the class and evaluate it using a confusion matrix.
+
+Procedure
+Load the Iris dataset.
+Convert the three-class Species variable into a binary classification problem: Setosa and Non-Setosa.
+Randomly split the dataset into 80% training and 20% testing data.
+Build a logistic regression model using Petal Length and Petal Width.
+Predict the test data.
+Create a confusion matrix and calculate accuracy.
+Code
+# Load Iris dataset
+data <- iris
+
+# Convert to binary classification
+data$Species <- ifelse(
+  data$Species == "setosa",
+  "setosa",
+  "non-setosa"
+)
+
+data$Species <- factor(data$Species)
+
+# Random 80/20 split
+set.seed(123)
+
+n <- nrow(data)
+
+train_index <- sample(
+  1:n,
+  size=0.8*n
+)
+
+train <- data[train_index,]
+test <- data[-train_index,]
+
+# Logistic regression
+model <- glm(
+  Species ~ Petal.Length + Petal.Width,
+  data=train,
+  family=binomial
+)
+
+# Model summary
+print(summary(model))
+
+# Predict probabilities
+prob <- predict(
+  model,
+  newdata=test,
+  type="response"
+)
+
+# Convert probability into class
+pred <- ifelse(
+  prob > 0.5,
+  "setosa",
+  "non-setosa"
+)
+
+pred <- factor(
+  pred,
+  levels=levels(test$Species)
+)
+
+# Confusion matrix
+confusion_matrix <- table(
+  Actual=test$Species,
+  Predicted=pred
+)
+
+print(confusion_matrix)
+
+# Calculate accuracy
+accuracy <- sum(diag(confusion_matrix)) /
+            sum(confusion_matrix)
+
+print(accuracy)
+Result
+
+Thus, the Iris dataset was successfully divided into training and testing sets, a logistic regression model was built, predictions were made and model performance was evaluated using a confusion matrix and accuracy.

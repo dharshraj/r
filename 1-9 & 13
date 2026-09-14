@@ -1,0 +1,124 @@
+#1Create numeric, character and logical vectors
+num<-c(10,20,30)
+char<-c("Apple","Ball","Cat")
+logical<-c(TRUE,FALSE,TRUE)
+print(num)
+print(typeof(num))
+print(char)
+print(typeof(char))
+print(logical)
+print(typeof(logical))
+
+#2Create labeled matrices (5×4, 3×3, 2×2) filled by row/column
+m1<-matrix(1:20,nrow=5,ncol=4,byrow=TRUE)
+rownames(m1)<-paste0("R",1:5)
+colnames(m1)<-paste0("C",1:4)
+print(m1)
+m2<-matrix(1:9,nrow=3,ncol=3,byrow=FALSE)
+rownames(m2)<-paste0("R",1:3)
+colnames(m2)<-paste0("C",1:3)
+print(m2)
+m3<-matrix(1:4,nrow=2,ncol=2,byrow=TRUE)
+rownames(m3)<-paste0("R",1:2)
+colnames(m3)<-paste0("C",1:2)
+print(m3)
+
+#3Create and display a 3D array
+arr<-array(1:12,dim=c(2,3,2))
+print(arr)
+print(dim(arr))
+
+#4Create arrays from vectors with dimension names and print specific elements
+v<-1:12
+arr<-array(
+  v,
+  dim=c(2,3,2),
+  dimnames=list(
+    c("R1","R2"),
+    c("C1","C2","C3"),
+    c("T1","T2")
+  )
+)
+print(arr)
+print(arr[1,2,1])
+print(arr[2,3,2])
+
+#5Create and manipulate factor variables
+heights<-c(160,170,165,168,169)
+gender<-factor(c("MALE","FEMALE","MALE","FEMALE","FEMALE"))
+print(heights)
+print(gender)
+letter_sample<-sample(LETTERS,10)
+print(letter_sample)
+letter_factor<-factor(letter_sample)
+print(letter_factor)
+print(levels(letter_factor))
+
+#6Create an R list containing vectors, matrices and functions
+v<-c(10,20,30,40)
+m<-matrix(1:9,nrow=3)
+square<-function(x){
+  return(x*x)
+}
+mylist<-list(
+  Vector=v,
+  Matrix=m,
+  Function=square
+)
+print(mylist)
+print(mylist$Vector)
+print(mylist$Matrix)
+print(mylist$Function(5))
+
+#7Factors of a number, random integers and FizzBuzz
+n<-24
+factor<-c()
+for(i in 1:n){
+  if(n%%i==0){
+    factor<-c(factor,i)
+  }
+}
+print(factor)
+x<-sample(-50:50,10)
+print(x)
+for(i in 1:100){
+  if(i%%15==0){
+    print("FizzBuzz")
+  }else if(i%%5==0){
+    print("Fizz")
+  }else if(i%%3==0){
+    print("Buzz")
+  }else{
+    print(i)
+  }
+}
+
+#8Generate random numbers from normal distribution and count occurrences
+set.seed(123)
+x<-rnorm(100,mean=50,sd=10)
+print(x)
+count<-sum(x>50)
+print(count)
+print(sum(x<50))
+
+#9Create empty plots with specified axis limits
+plot(
+  0,0,
+  type="n",
+  xlim=c(0,100),
+  ylim=c(0,100),
+  xlab="X-axis",
+  ylab="Y-axis",
+  main="Empty Plot"
+)
+
+#13Combine multiple arrays row-wise
+a1<-matrix(1:6,nrow=2,ncol=3)
+a2<-matrix(7:12,nrow=2,ncol=3)
+a3<-matrix(13:18,nrow=2,ncol=3)
+print(a1)
+print(a2)
+print(a3)
+result<-rbind(a1,a2,a3)
+print(result)
+
